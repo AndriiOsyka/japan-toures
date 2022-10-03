@@ -1,29 +1,42 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <header-layout class="header-layout" />
+  <div class="wraper">
+    <router-view class="body-vue" />
+  </div>
 </template>
 
+<script>
+import HeaderLayout from './components/header-layout.vue'
+
+export default {
+  components: {
+    HeaderLayout
+  }
+}
+</script>
+
 <style lang="scss">
+@import '@/assets/scss/style.scss';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0 auto;
+  color: $color-white;
+  position: relative;
+  @include font-lato;
+  .wraper {
+    margin: 0 auto;
+    max-width: 1262px;
+    position: relative;
+  }
 }
 
 nav {
   padding: 30px;
 
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    color: $color-white;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $color-purple;
     }
   }
 }

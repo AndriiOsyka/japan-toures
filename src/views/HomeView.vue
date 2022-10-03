@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home-layout">
+    <home class="home" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Home from '@/components/home-layout.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    Home
+  },
+  methods: {
+    ...mapMutations(['SET_GUIDES'])
+  },
+  async mounted () {
+    await this.SET_GUIDES([])
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/style.scss';
+
+</style>
